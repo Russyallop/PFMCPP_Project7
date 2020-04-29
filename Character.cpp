@@ -4,6 +4,7 @@
 
 #include "DefensiveItem.h"
 #include "HelpfulItem.h"
+#include "Utility.h"
 
 Character::Character(int hp, int armor_, int attackDamage_ ) :
     hitPoints(hp),
@@ -26,6 +27,7 @@ void Character::attack( Character& other )
         
     isDefending = false;
     std::cout << getName() << " has attacked " << other.getName() << std::endl;
+    other.hitPoints -= attackDamage;
     //subtract attackDamage from other->hitPoints
     if( other.takeDamage(attackDamage) <= 0 )
     {
@@ -87,7 +89,7 @@ int Character::takeDamage(int damage)
 }
 
 
-#include <assert>
+#include <assert.h>
 void Character::attackInternal(Character& other)
 {
     if( other.hitPoints <= 0 )
@@ -98,18 +100,37 @@ void Character::attackInternal(Character& other)
             b) your stats are boosted 10%
             c) the initial value of your stats is updated to reflect this boosted stat for the next time you defeat another character.
       */
-        assert(false);
-        std::cout << getName() << " defeated " << other.getName() << " and leveled up!" << std::endl;        
+        int HP = getHP();
+        if (HP<*initialHitPoints)
+            (HP = *initialHitPoints);
+        HP = HP*1.1;
+        *initialHitPoints = HP;
+        hitPoints = HP;
+
+        int A = getArmorLevel();
+        if (A<*initialArmorLevel)
+            (A = *initialArmorLevel);
+        A = A*1.1;
+        *initialArmorLevel = A;
+        armor = A;
+        
+        int AD = getAttackDamage();
+        if (AD<*initialAttackDamage)
+            (AD= *initialAttackDamage);
+        AD = AD*1.1;
+        *initialAttackDamage = AD;
+        attackDamage = AD;
+        
+        
+        std::cout << getName() << " defeated " << other.getName() << " and leveled up!" << std::endl;
     }
 }
 
 void Character::printStats()
 {
     std::cout << getName() << "'s stats: " << std::endl;
-    assert(false);
-    /*
-    make your getStats() use a function from the Utility.h
-    */
+//    assert(false);
+    
     std::cout << getStats(); 
     
     std::cout << std::endl;
