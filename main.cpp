@@ -45,15 +45,6 @@ it's very easy to mess this task up.
          for the 'vtables' warnings coming from a header file, move any virtual function implementations to the complementary cpp file.
          for 'shadow' warnings, rename the offending variable.
          casting is introduced in the next video and project, so ignore any 'implicit conversion' warnings.
-
- Commit your changes by clicking on the Source Control panel on the left, entering a message, and click [Commit and push].
-
-Make a pull request after you make your first commit and pin the pull request link to our DM thread.
-
-send me a DM to check your pull request
-
- Wait for my code review.
-
  */
 
 #include "Item.h"
@@ -63,6 +54,19 @@ send me a DM to check your pull request
 #include "Dragon.h"
 #include "DragonSlayer.h"
 //==========================================================
+/*
+ MAKE SURE YOU ARE NOT ON THE MASTER BRANCH
+
+ Commit your changes by clicking on the Source Control panel on the left, entering a message, and click [Commit and push].
+ 
+ If you didn't already: 
+    Make a pull request after you make your first commit
+    pin the pull request link and this repl.it link to our DM thread in a single message.
+
+ send me a DM to review your pull request when the project is ready for review.
+
+ Wait for my code review.
+ */
 //==========================================================
 int main()
 {
