@@ -33,6 +33,7 @@
  Paladin's attackDamage is 10
  
  6) Each character type gets some Helpful Items and Defensive Items when they're constructed
+
  Use the functions in Utility.h to give each Character (excluding Dragon, because dragons don't carry items) a RANDOM NUMBER of helpful and defensive items:
  helpfulItems = makeHelpfulItems(2);
  defensiveItems = makeDefensiveItems(1);
@@ -53,7 +54,7 @@
  send me a DM to check your pull request
  
  Wait for my code review.
- 
+
  */
 
 #include "Item.h"
@@ -63,6 +64,19 @@
 #include "Dragon.h"
 #include "DragonSlayer.h"
 //==========================================================
+/*
+ MAKE SURE YOU ARE NOT ON THE MASTER BRANCH
+
+ Commit your changes by clicking on the Source Control panel on the left, entering a message, and click [Commit and push].
+ 
+ If you didn't already: 
+    Make a pull request after you make your first commit
+    pin the pull request link and this repl.it link to our DM thread in a single message.
+
+ send me a DM to review your pull request when the project is ready for review.
+
+ Wait for my code review.
+ */
 //==========================================================
 int main()
 {
