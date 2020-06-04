@@ -4,8 +4,8 @@
 
 Paladin::Paladin(std::string nameGiven, int hitPoints, int armor ) : Character(hitPoints, armor, 10), name(nameGiven)
 {
-    helpfulItems = makeHelpfulItems(rand()%20);
-    defensiveItems = makeDefensiveItems(rand()%20);
+    helpfulItems = makeHelpfulItems(rand()%6);
+    defensiveItems = makeDefensiveItems(rand()%6);
 }
 Paladin::~Paladin()
 {
@@ -25,3 +25,4 @@ void Paladin::attack(Character& other)
     std::cout << name << " is attacking " << other.getName() << "!!!" << std::endl;
     Character::attack(other);    
 }
+

@@ -24,7 +24,7 @@ void Character::attack( Character& other )
         std::cout << "make another party member use an item to revive them" << std::endl << std::endl;
         return;
     }
-        
+
     isDefending = false;
     std::cout << getName() << " has attacked " << other.getName() << std::endl;
     other.hitPoints -= attackDamage;
@@ -76,7 +76,7 @@ int Character::takeDamage(int damage)
     {
         damage -= armor;
         armor = 0;
-        
+
         hitPoints -= damage;
         if( hitPoints < 0 )
         {
@@ -95,7 +95,7 @@ void Character::attackInternal(Character& other)
     if( other.hitPoints <= 0 )
     {
         /*
-        When you defeat another Character: 
+        When you defeat another Character:
             a) your stats are restored to their initial value if they are lower than it.
             b) your stats are boosted 10%
             c) the initial value of your stats is updated to reflect this boosted stat for the next time you defeat another character.
@@ -113,15 +113,15 @@ void Character::attackInternal(Character& other)
         A = A*1.1;
         *initialArmorLevel = A;
         armor = A;
-        
+
         int AD = getAttackDamage();
         if (AD<*initialAttackDamage)
             (AD= *initialAttackDamage);
         AD = AD*1.1;
         *initialAttackDamage = AD;
         attackDamage = AD;
-        
-        
+
+
         std::cout << getName() << " defeated " << other.getName() << " and leveled up!" << std::endl;
     }
 }
@@ -130,9 +130,9 @@ void Character::printStats()
 {
     std::cout << getName() << "'s stats: " << std::endl;
 //    assert(false);
-    
-    std::cout << getStats(); 
-    
+
+    std::cout << getStats();
+
     std::cout << std::endl;
     std::cout << std::endl;
 }
