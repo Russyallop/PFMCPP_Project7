@@ -85,19 +85,10 @@ int main()
     Paladin paladin { "Warrick the Paladin", 5, 2 };
     Dragon dragon { "Garry The Dragon", 200, 50 };
     DragonSlayer dragonSlayer { "Virgil the Dragon Slayer", 8, 5 };
-    
-    std::vector<Character*> characterss { &dwarf, &paladin, &dragon, &dragonSlayer };
-    for( auto* character : characterss )
-        character->printStats();
-    
-    
 
     std::cout << "\nstart of battle" << std::endl;
     
     paladin.defend();
-    std::vector<Character*> charactersss { &dwarf, &paladin, &dragon, &dragonSlayer };
-    for( auto* character : charactersss )
-        character->printStats();
     dragon.attack( paladin );
     dwarf.attack( dragon );
     paladin.attack( dragon ); //can't, he's dead

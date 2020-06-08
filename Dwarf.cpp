@@ -3,8 +3,8 @@
 
 Dwarf::Dwarf(std::string nameGiven, int hitPoints, int armor ) : Character(hitPoints, armor, 4), name(nameGiven)
 {
-    helpfulItems = makeHelpfulItems(rand()%6);
-    defensiveItems = makeDefensiveItems(rand()%6);
+    helpfulItems = makeHelpfulItems(2);
+    defensiveItems = makeDefensiveItems(5);
 }
 Dwarf::~Dwarf()
 {

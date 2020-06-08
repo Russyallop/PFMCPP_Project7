@@ -5,8 +5,8 @@
 //DragonSlayer::DragonSlayer
 DragonSlayer::DragonSlayer(std::string nameGiven,  int hitPoints, int armor ) : Character(hitPoints, armor, 4), name(nameGiven)
 {
-    helpfulItems = makeHelpfulItems(rand()%6);
-    defensiveItems = makeDefensiveItems(rand()%6);
+    helpfulItems = makeHelpfulItems(3);
+    defensiveItems = makeDefensiveItems(3);
 }
 DragonSlayer::~DragonSlayer()
 {
@@ -38,7 +38,6 @@ void DragonSlayer::attack(Character& other)
         {
           dragon->takeDamage(attackDamage);
         }
-        std::cout << "AFTER LOOP"<<std::endl;
     }
     Character::attack(other);        
 }
