@@ -1,6 +1,5 @@
 #include "Character.h"
-#include <iostream>
-#include <vector>
+
 
 #include "DefensiveItem.h"
 #include "HelpfulItem.h"
@@ -90,8 +89,8 @@ int Character::takeDamage(int damage)
 void characterDefeated(int& score, int& initialScore)
 {
     if ( score < initialScore )
-        ( score = initialScore );
-    score = score * 1.1;
+         score = initialScore;
+    score *= 1.1;
     initialScore = score;
 }
 
