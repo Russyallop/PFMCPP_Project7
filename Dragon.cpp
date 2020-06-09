@@ -1,14 +1,25 @@
 #include "Dragon.h"
 #include "DragonSlayer.h"
+#include "Utility.h"
 
-//Dragon::Dragon
+Dragon::Dragon(std::string nameGiven,  int hitPoints, int armor ) : Character(hitPoints, armor, 80), name(nameGiven)
+{
+    
+}
+const std::string& Dragon::getName()
+{
+    return name;
+}
+std::string Dragon::getStats()
+{
+    return getCharacterStats(this);
+}
 
 void Dragon::attack(Character &other)
 {
     std::cout << name << " is attacking " << other.getName() << "!!!" << std::endl;
     if( auto* slayer = dynamic_cast<DragonSlayer*>(&other) )
     {
-        //dragons can't attack dragon slayers
         slayer->defend();
     }
     else
@@ -16,7 +27,3 @@ void Dragon::attack(Character &other)
         Character::attack(other);
     }
 }
-
-//Dragon::getName
-
-//Dragon::getStats

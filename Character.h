@@ -11,12 +11,7 @@ struct Character
 {
     Character(int hp, int armor_, int attackDamage_ );
     virtual ~Character() { }
-    
-    /*
-     a pure virtual getName function.
-     derived class stores the name, not the base class.
-     */
-    
+ 
     virtual const std::string& getName() = 0;
     virtual std::string getStats() = 0;
     
@@ -53,14 +48,8 @@ struct Character
         std::cout << getName() << "'s attack damage level has been boosted to " << attackDamage << std::endl;
     }
 
-    void printStats()
-    {
-        std::cout << getName() << "'s stats: " << std::endl;
-        std::cout << getStats(); //make your getStats() use a function from the Utility.h
-        
-        std::cout << std::endl;
-        std::cout << std::endl;
-    }
+    void printStats();
+
 protected:
     std::vector<std::unique_ptr<Item>> defensiveItems;
     std::vector<std::unique_ptr<Item>> helpfulItems;
@@ -68,7 +57,6 @@ protected:
     int attackDamage;
     bool isDefending = false;
 private:
-    std::unique_ptr<int> initialHitPoints, initialArmorLevel, initialAttackDamage;
-    
+    std::unique_ptr<int> initialHitPoints, initialArmorLevel, initialAttackDamage;   
     void attackInternal(Character& other);
 };

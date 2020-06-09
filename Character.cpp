@@ -1,9 +1,9 @@
 #include "Character.h"
-#include <iostream>
-#include <vector>
+
 
 #include "DefensiveItem.h"
 #include "HelpfulItem.h"
+#include "Utility.h"
 
 Character::Character(int hp, int armor_, int attackDamage_ ) :
     hitPoints(hp),
@@ -23,13 +23,13 @@ void Character::attack( Character& other )
         std::cout << "make another party member use an item to revive them" << std::endl << std::endl;
         return;
     }
-        
+
     isDefending = false;
     std::cout << getName() << " has attacked " << other.getName() << std::endl;
-    //subtract attackDamage from other->hitPoints
+
     if( other.takeDamage(attackDamage) <= 0 )
     {
-        //if you kill other, you get a boost in hit points and armor.
+
         attackInternal(other);
     }
 }
@@ -74,7 +74,7 @@ int Character::takeDamage(int damage)
     {
         damage -= armor;
         armor = 0;
-        
+
         hitPoints -= damage;
         if( hitPoints < 0 )
         {
@@ -86,32 +86,38 @@ int Character::takeDamage(int damage)
     return hitPoints;
 }
 
+void characterDefeated(int& score, int& initialScore)
+{
+    if ( score < initialScore )
+         score = initialScore;
+    score *= 1.1;
+    initialScore = score;
+}
 
-#include <assert>
+
+#include <assert.h>
 void Character::attackInternal(Character& other)
 {
     if( other.hitPoints <= 0 )
     {
-        /*
-        When you defeat another Character: 
-            a) your stats are restored to their initial value if they are lower than it.
-            b) your stats are boosted 10%
-            c) the initial value of your stats is updated to reflect this boosted stat for the next time you defeat another character.
-      */
-        assert(false);
-        std::cout << getName() << " defeated " << other.getName() << " and leveled up!" << std::endl;        
+
+        characterDefeated(hitPoints, *initialHitPoints);
+        characterDefeated(armor, *initialArmorLevel);
+        characterDefeated(attackDamage, *initialAttackDamage);
+
+        std::cout << getName() << " defeated " << other.getName() << " and leveled up!" << std::endl;
     }
 }
+
+
 
 void Character::printStats()
 {
     std::cout << getName() << "'s stats: " << std::endl;
-    assert(false);
-    /*
-    make your getStats() use a function from the Utility.h
-    */
-    std::cout << getStats(); 
-    
+//    assert(false);
+
+    std::cout << getStats();
+
     std::cout << std::endl;
     std::cout << std::endl;
 }
