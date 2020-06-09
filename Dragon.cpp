@@ -6,10 +6,6 @@ Dragon::Dragon(std::string nameGiven,  int hitPoints, int armor ) : Character(hi
 {
     
 }
-Dragon::~Dragon()
-{
-    
-}
 const std::string& Dragon::getName()
 {
     return name;

@@ -8,10 +8,6 @@ DragonSlayer::DragonSlayer(std::string nameGiven,  int hitPoints, int armor ) : 
     helpfulItems = makeHelpfulItems(3);
     defensiveItems = makeDefensiveItems(3);
 }
-DragonSlayer::~DragonSlayer()
-{
-
-}
 const std::string& DragonSlayer::getName()
 {
     return name;

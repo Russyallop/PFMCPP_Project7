@@ -7,10 +7,6 @@ Paladin::Paladin(std::string nameGiven, int hitPoints, int armor ) : Character(h
     helpfulItems = makeHelpfulItems(2);
     defensiveItems = makeDefensiveItems(6);
 }
-Paladin::~Paladin()
-{
-    
-}
 
 const std::string& Paladin::getName()
 {

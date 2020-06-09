@@ -6,7 +6,7 @@
 struct DragonSlayer : Character
 {
     DragonSlayer(std::string name,  int hitPoints, int armor );
-    ~DragonSlayer() override;
+    
     const std::string& getName() override;
     std::string getStats() override;
     void attack(Character& other) override;
