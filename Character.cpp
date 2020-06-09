@@ -27,11 +27,10 @@ void Character::attack( Character& other )
 
     isDefending = false;
     std::cout << getName() << " has attacked " << other.getName() << std::endl;
-    other.hitPoints -= attackDamage;
-    //subtract attackDamage from other->hitPoints
+
     if( other.takeDamage(attackDamage) <= 0 )
     {
-        //if you kill other, you get a boost in hit points and armor.
+
         attackInternal(other);
     }
 }
@@ -88,40 +87,30 @@ int Character::takeDamage(int damage)
     return hitPoints;
 }
 
+void characterDefeated(int& score, int& initialScore)
+{
+    if ( score < initialScore )
+        ( score = initialScore );
+    score = score * 1.1;
+    initialScore = score;
+}
+
 
 #include <assert.h>
 void Character::attackInternal(Character& other)
 {
     if( other.hitPoints <= 0 )
     {
-        /*
-        When you defeat another Character:
-            a) your stats are restored to their initial value if they are lower than it.
-            b) your stats are boosted 10%
-            c) the initial value of your stats is updated to reflect this boosted stat for the next time you defeat another character.
-      */
-        
-        if (this->hitPoints < *this->initialHitPoints)
-            (this->hitPoints = *this->initialHitPoints);
-        this->hitPoints = this->hitPoints*1.1;
-        *this->initialHitPoints = this->hitPoints;
-        
-        if (this->armor < *this->initialArmorLevel)
-            (this->armor = *this->initialArmorLevel);
-        this->armor = this->armor*1.1;
-        *this->initialArmorLevel = this->armor;
-        
-        if (this->attackDamage < *this->initialAttackDamage)
-        (this->attackDamage = *this->initialAttackDamage);
-        this->attackDamage = this->attackDamage*1.1;
-        *this->initialArmorLevel = this->attackDamage;      
 
-
-
+        characterDefeated(hitPoints, *initialHitPoints);
+        characterDefeated(armor, *initialArmorLevel);
+        characterDefeated(attackDamage, *initialAttackDamage);
 
         std::cout << getName() << " defeated " << other.getName() << " and leveled up!" << std::endl;
     }
 }
+
+
 
 void Character::printStats()
 {

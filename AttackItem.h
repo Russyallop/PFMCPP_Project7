@@ -3,7 +3,8 @@
 
 #include "Item.h"
 #include "Character.h"
-#include "Utility.h"
+
+struct Character;
 
 struct AttackItem : Item
 {

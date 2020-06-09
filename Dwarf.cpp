@@ -20,7 +20,6 @@ std::string Dwarf::getStats()
 }
 void Dwarf::attack(Character& other)
 {
-    std::cout << name << " is attacking " << other.getName() << "!!!" << std::endl;
     Character::attack(other);
 }
 

@@ -3,7 +3,7 @@
 #include "Character.h"
 #include "AttackItem.h"
 
-struct DragonSlayer : public Character
+struct DragonSlayer : Character
 {
     DragonSlayer(std::string name,  int hitPoints, int armor );
     ~DragonSlayer() override;

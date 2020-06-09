@@ -2,7 +2,7 @@
 #include <string>
 #include "Character.h"
 
-struct Paladin : public Character
+struct Paladin : Character
 {
 public:
     Paladin(std::string name,  int hitPoints, int armor );

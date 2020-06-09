@@ -54,6 +54,8 @@ struct Character
     }
 
     void printStats();
+
+
 //    {
 //        std::cout << getName() << "'s stats: " << std::endl;
 //        std::cout << getStats(); //make your getStats() use a function from the Utility.h

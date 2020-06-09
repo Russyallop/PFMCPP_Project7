@@ -4,7 +4,7 @@
 #include "Character.h"
 
 
-struct Dragon : public Character
+struct Dragon : Character
 {
     Dragon(std::string name,  int hitPoints, int armor );
     ~Dragon() override;
